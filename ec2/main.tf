@@ -8,12 +8,12 @@ terraform {
 }
 
 provider "aws" {
-  region = "ap-southeast-2"
+  region = "us-east-1"
 }
 
 resource "aws_instance" "demo" {
-  ami           = "ami-03f0544597f43a91d"
-  instance_type = "t2.micro"
+  ami           = "ami-04b938437b69a2c9c"
+  instance_type = "t3.micro"
 
   tags = {
     Name = "Jenkins-Terraform-Demo"
