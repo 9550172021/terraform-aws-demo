@@ -12,7 +12,7 @@ resource "aws_instance" "demo" {
   instance_type = "t3.micro"
 
   tags = {
-    Name = "Jenkins-Terraform-Demo-infra"
+    Name = "Jenkins-Terraform-Demo-infra-code"
   }
 
   user_data = <<-EOF
