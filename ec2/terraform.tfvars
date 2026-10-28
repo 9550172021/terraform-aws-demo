@@ -1,0 +1,5 @@
+aws_region       = "us-east-1"
+ami_id           = "ami-07887b6789db08b82"
+instance_type    = "t3.micro"
+subnet_id        = "subnet-02c17126b06296c26"
+security_group_id = "sg-06a19a6a6c6390312"
