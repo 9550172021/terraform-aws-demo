@@ -3,7 +3,7 @@ resource "aws_iam_user" "demo_user" {
 
   tags = {
     Environment = "Demo"
-    Owner       = "Hemanth"
+    Owner       = "Hemanth kumar"
   }
 }
 
