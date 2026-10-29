@@ -1,5 +1,5 @@
 aws_region       = "us-east-1"
-ami_id           = "ami-07887b6789db08b82"
+ami_id           = "ami-041607313c6a2a618"
 instance_type    = "t3.micro"
-subnet_id        = "subnet-02c17126b06296c26"
-security_group_id = "sg-06a19a6a6c6390312"
+subnet_id        = "subnet-02a5c1ef6f734bb6b"
+security_group_id = "sg-01d98a53fd689ff9a"
