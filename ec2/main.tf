@@ -6,7 +6,7 @@ resource "aws_instance" "hemanth_ec2" {
   associate_public_ip_address = true
 
   tags = {
-    Name        = "Hemanth kumar Ec2"
+    Name        = "Hemanth-infra-Ec2"
     Environment = "Aws-training"
   }
 }
