@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
@@ -27,6 +28,27 @@ pipeline {
                     terraform validate
                     cd -
                 done
+                '''
+            }
+        }
+
+        stage('Terraform Plan') {
+            steps {
+                sh '''
+                cd ec2
+                terraform init
+                terraform plan -out=tfplan
+                '''
+            }
+        }
+
+        stage('Terraform Apply') {
+            steps {
+                input message: 'Do you want to run Terraform Apply?'
+
+                sh '''
+                cd ec2
+                terraform apply -auto-approve tfplan
                 '''
             }
         }
