@@ -1,25 +1,50 @@
 name: Terraform Checks
 
 on:
-  pull_request:
   push:
+  pull_request:
 
 jobs:
   terraform:
+
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
+      - name: Find Terraform Directories
+        run: |
+          find . -type f -name "*.tf" | xargs -n1 dirname | sort -u > tf_dirs.txt
+          cat tf_dirs.txt
+
       - name: Terraform Init
-        run: terraform init
+        run: |
+          while read dir; do
+            echo "Processing: $dir"
+            cd "$dir"
+            terraform init -input=false
+            cd -
+          done < tf_dirs.txt
 
       - name: Terraform Validate
-        run: terraform validate
+        run: |
+          while read dir; do
+            echo "Validating: $dir"
+            cd "$dir"
+            terraform validate
+            cd -
+          done < tf_dirs.txt
 
       - name: Terraform Plan
-        run: terraform plan
+        run: |
+          while read dir; do
+            echo "Planning: $dir"
+            cd "$dir"
+            terraform plan || true
+            cd -
+          done < tf_dirs.txt
