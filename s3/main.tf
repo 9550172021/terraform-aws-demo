@@ -1,11 +1,8 @@
-provider "aws" {
-  region = "us-east-2"
-}
-
-resource "aws_s3_bucket" "hemanth_bucket" {
-  bucket = "hemanth-demo-bucket-9550172021"
+resource "aws_s3_bucket" "file_storage" {
+  bucket = var.bucket_name
 
   tags = {
-    Name = "hemanth-infra-bucket"
+    Name        = var.bucket_name
+    Environment = var.environment
   }
 }
