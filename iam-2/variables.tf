@@ -1,6 +1,6 @@
 variable "user_name" {
   type    = string
-  default = "hemanthkumarreddy"
+  default = "reddy"
 }
 
 variable "group_name" {
