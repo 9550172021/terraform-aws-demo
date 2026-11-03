@@ -35,7 +35,7 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 sh '''
-                cd ec2
+                cd iam-2
                 terraform init
                 terraform plan -out=tfplan
                 '''
@@ -44,10 +44,8 @@ pipeline {
 
         stage('Terraform Apply') {
             steps {
-                input message: 'Do you want to run Terraform Apply?'
-
                 sh '''
-                cd ec2
+                cd iam-2
                 terraform apply -auto-approve tfplan
                 '''
             }
