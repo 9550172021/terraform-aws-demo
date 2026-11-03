@@ -3,7 +3,7 @@ variable "aws_region" {
 }
 
 variable "bucket_name" {
-  default = "hemanth-s3-demo-9550172021"
+  default = "s3-9550172021"
 }
 
 variable "environment" {
